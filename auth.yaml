@@ -1,0 +1,41 @@
+openapi: 3.0.0
+info:
+  title: Game Lobby API
+  version: 1.0.0
+paths:
+  /auth:
+    post:
+      summary: Авторизация
+      description: >
+        Авторизация пользователя в лобби
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                lobbyId:
+                  type: string
+                  description: Идентификатор лобби
+                userName:
+                  type: string
+                  description: Имя пользователя
+          
+      responses:
+        '200':
+          description: Успешное присоединение к лобби или создание нового
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: 'components/players.yaml#/components/schemas/Player'
+                - type: object
+                  properties: 
+                    token:
+                      type: string
+                      description: Токен авторизации пользователя
+                    lobbyId:
+                      type: string
+                      description: Идентификатор лобби которому подключени игрок
+

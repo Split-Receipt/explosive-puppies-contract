@@ -1,0 +1,20 @@
+components:
+  schemas:
+    Player:
+      type: object
+      properties:
+        userName: 
+          type: string
+          description: Никнейм пользователя
+        avatar: 
+          type: string
+          description: Аватар пользователя
+        id: 
+          type: string
+          description: Идентификатор пользователя
+      description: Объект с данными об игроке
+    Players: 
+      type: array
+      items:
+        $ref: '#/components/schemas/Player'
+      description: Список игроков

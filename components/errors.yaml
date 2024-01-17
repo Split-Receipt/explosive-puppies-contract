@@ -1,0 +1,13 @@
+components:
+  schemas:
+    Error:
+      type: object
+      description: Объект с данными об ошибке
+      properties:
+        code:
+          type: string
+          description: Код ошибки не связан с статусом запроса
+        message:
+          type: string
+          description: Пояснение ошибки
+          

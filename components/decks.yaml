@@ -1,0 +1,48 @@
+components:
+  schemas:
+    Card:
+      type: object
+      description: Данные о карте
+      properties:
+        id:
+          type: string
+          description: Идентификатор карты
+        name:
+          type: string
+          description: Название карты
+        image:
+          type: string
+          description: Изображение карты
+        description:
+          type: string
+          description: Описание карты
+        code:
+          type: string
+          description: Код карты для понимания ее эффекта внутри кода игры
+    Deck:
+      type: object
+      description: Колода
+      properties:
+        id:
+          type: string
+          description: Идентификатор колоды
+        name:
+          type: string
+          description: Название колоды
+        cards:
+          type: array
+          items:
+            $ref: '#/components/schemas/Card'
+          description: Список карт в колоде
+        description:
+          type: string
+          description: Описание колоды
+        code:
+          type: string
+          description: Код колоды для понимания ее назначения
+        deckOwner:
+          type: string
+          description: Id игрока которому принадлежит колода
+        cardsTotal:
+          type: integer
+          description: Общее количество карт в колоде 

@@ -1,0 +1,59 @@
+components:
+  schemas:
+    Game:
+      description: Список игр в лобби
+      items: 
+        type: object
+        properties:
+          id:
+            type: string
+            description: Идентификатор игры
+          lobbyId:
+            type: string
+            description: Идентификатор лобби к которой относится игра
+          players:
+            type: array
+            items:
+              type: string
+            description: Игроки находящиеся в игре их идентификаторы из числа тех что были в лобби
+          playersDecks:
+            type: array
+            items:
+              type: object
+              $ref: 'decks.yaml#/components/schemas/Deck'
+          beatenDeck:
+            type: object
+            $ref: 'decks.yaml#/components/schemas/Deck'
+            description: колода бито
+          generalDeck:
+            type: object
+            $ref: 'decks.yaml#/components/schemas/Deck'
+            description: колода бито
+          moves:
+            type: array
+            description: ходы
+            items:
+              type: object
+              description: Конкретный ход игрока
+              properties:
+                player:
+                  type: string
+                  description: Идентификатор игрока
+                cards:
+                  type: array
+                  $ref: 'decks.yaml#/components/schemas/Card'
+          winner:
+            type: object
+            $ref: 'players.yaml#/components/schemas/Player'
+            description: победитель
+          status:
+            type: string
+            description: Статус игры
+
+                  
+                  
+                  
+                  
+            
+            
+          
