@@ -48,7 +48,7 @@ paths:
                 type: object
                 $ref: 'components/errors.yaml#/components/schemas/Error'
         '401':
-          description: Лобби не существует
+          description: Вы не авторизованы
           content:
             application/json:
               schema:
