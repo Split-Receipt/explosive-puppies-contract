@@ -19,12 +19,10 @@ paths:
             schema:
               type: object
               properties:
-                players:
-                  $ref: 'components/players.yaml#/components/schemas/Players'
-                  description: Список игроков
-                lobbyId:
+                id: {
                   type: string
-                  description: id лобби
+                  required: true
+                }
       responses:
         '200':
           description: Успешный запрос объекта игры
