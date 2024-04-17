@@ -33,9 +33,9 @@ paths:
               schema:
                 type: Object
                 properties: 
-                gameId: 
-                  type: string
-                  description: Идентификатор игры
+                  gameId: 
+                    type: string
+                    description: Идентификатор игры
 
         '400':
           description: Некорректный запрос
