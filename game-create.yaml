@@ -31,7 +31,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'components/games.yaml#/components/schemas/Game'
+                type: Object
+                properties: 
+                gameId: 
+                  type: string
+                  description: Идентификатор игры
 
         '400':
           description: Некорректный запрос
