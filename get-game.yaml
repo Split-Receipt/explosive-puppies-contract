@@ -19,10 +19,9 @@ paths:
             schema:
               type: object
               properties:
-                id: {
+                id:
                   type: string
                   required: true
-                }
       responses:
         '200':
           description: Успешный запрос объекта игры
