@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: Game Lobby API
+  version: 1.0.0
+paths:
+  /game/get-by-id:
+    post:
+      summary: Создание игры
+      description: Метод создающий новую игру в лобби
+      parameters:
+        - in: header
+          name: App-Token
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                players:
+                  $ref: 'components/players.yaml#/components/schemas/Players'
+                  description: Список игроков
+                lobbyId:
+                  type: string
+                  description: id лобби
+      responses:
+        '200':
+          description: Успешный запрос объекта игры
+          content:
+            application/json:
+              schema:
+                $ref: 'components/games.yaml#/components/schemas/Game'
+
+        '400':
+          description: Некорректный запрос
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: 'components/errors.yaml#/components/schemas/Error'
+        '401':
+          description: Вы не авторизованы
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: 'components/errors.yaml#/components/schemas/Error'
