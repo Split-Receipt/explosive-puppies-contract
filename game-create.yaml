@@ -3,7 +3,7 @@ info:
   title: Game Lobby API
   version: 1.0.0
 paths:
-  /game:
+  /game/create:
     post:
       summary: Создание игры
       description: Метод создающий новую игру в лобби
@@ -31,7 +31,7 @@ paths:
           content:
             application/json:
               schema:
-                type: Object
+                type: object
                 properties: 
                   gameId: 
                     type: string
