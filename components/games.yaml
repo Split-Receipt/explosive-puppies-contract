@@ -21,6 +21,7 @@ components:
             items:
               type: object
               $ref: 'decks.yaml#/components/schemas/Deck'
+              description: колода игрока
           beatenDeck:
             type: object
             $ref: 'decks.yaml#/components/schemas/Deck'
@@ -28,7 +29,11 @@ components:
           generalDeck:
             type: object
             $ref: 'decks.yaml#/components/schemas/Deck'
-            description: колода бито
+            description: основная колода
+          activeDeck:
+            type: object
+            $ref: 'decks.yaml#/components/schemas/Deck'
+            description: колода с активными картами - предбито
           moves:
             type: array
             description: ходы
