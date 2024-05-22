@@ -1,0 +1,42 @@
+openapi: 3.0.0
+info:
+  title: WebSocket API
+  version: 1.0.0
+
+servers:
+  - url: wss://example.com/ws
+    description: Сервер WebSocket для обмена сообщениями в реальном времени.
+
+paths:
+  /game/socket:
+    get:
+      summary: Установка соединения WebSocket
+      responses:
+        '101':
+          description: Соединение WebSocket успешно установлено с использованием заголовка Upgrade.
+components:
+  schemas:
+    userMove:
+      type: object
+      required:
+        - card
+        - player
+      properties:
+        card:
+          type: object
+          $ref: 'components/decks.yaml#/components/schemas/Card'
+        player:
+          type: object
+          $ref: 'components/players.yaml#/components/schemas/Player'
+
+    ErrorMessage:
+      type: object
+      required:
+        - error
+      properties:
+        message:
+          type: string
+          $ref: 'components/errors.yaml#/components/schemas/Error'
+        code:
+          type: string
+          $ref: 'components/errors.yaml#/components/schemas/Error'
