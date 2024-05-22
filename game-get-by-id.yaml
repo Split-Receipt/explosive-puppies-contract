@@ -8,8 +8,8 @@ paths:
       summary: Получение информации для игры
       description: Метод для получения объекта игры по id
       parameters:
-        - in: query
-          name: gameId
+        - in: header
+          name: App-Token
           schema:
             type: string
       requestBody:
