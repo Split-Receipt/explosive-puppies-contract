@@ -12,6 +12,9 @@ components:
         id: 
           type: string
           description: Идентификатор пользователя
+        status:
+          type: string
+          description: Сетевой статус
       description: Объект с данными об игроке
     Players: 
       type: array

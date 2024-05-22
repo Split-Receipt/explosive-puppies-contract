@@ -6,8 +6,7 @@ paths:
   /auth:
     post:
       summary: Авторизация
-      description: >
-        Авторизация пользователя в лобби
+      description: Авторизация пользователя в лобби
       requestBody:
         required: true
         content:
