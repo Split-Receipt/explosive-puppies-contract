@@ -5,8 +5,8 @@ info:
 paths:
   /game/get-by-id:
     post:
-      summary: Создание игры
-      description: Метод создающий новую игру в лобби
+      summary: Получение информации для игры
+      description: Метод для получения объекта игры по id
       parameters:
         - in: header
           name: App-Token
@@ -19,9 +19,8 @@ paths:
             schema:
               type: object
               properties:
-                id:
+                gameId:
                   type: string
-                  required: true
       responses:
         '200':
           description: Успешный запрос объекта игры
