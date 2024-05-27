@@ -20,14 +20,14 @@ components:
       type: object
       required:
         - card
-        - player
+        - playerId
       properties:
         card:
           type: object
           $ref: 'components/decks.yaml#/components/schemas/Card'
-        player:
-          type: object
-          $ref: 'components/players.yaml#/components/schemas/Player'
+        playerId:
+          type: string
+          description: Идентификатор игрока
 
     ErrorMessage:
       type: object
