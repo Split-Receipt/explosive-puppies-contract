@@ -1,0 +1,57 @@
+openapi: 3.0.0
+info:
+  title: WebSocket API
+  version: 1.0.0
+
+servers:
+  - url: wss://example.com/ws
+    description: Сервер WebSocket для обмена сообщениями в реальном времени.
+
+paths:
+  /lobby/socket:
+    get:
+      summary: Установка соединения WebSocket
+      responses:
+        '101':
+          description: Соединение WebSocket успешно установлено с использованием заголовка Upgrade.
+
+components:
+  schemas:
+    gameInitEvent:
+      type: object
+      required:
+        - event
+        - gameId
+      properties:
+        event:
+          type: string
+          description: Код события начала игры
+        gameId:
+          type: string
+          description: Идентификатор игры
+
+    ErrorMessage:
+      type: object
+      required:
+        - error
+      properties:
+        message:
+          type: string
+          $ref: 'components/errors.yaml#/components/schemas/Error'
+        code:
+          type: string
+          $ref: 'components/errors.yaml#/components/schemas/Error'
+
+          messages:
+            gameInitEvent:
+              description: Сообщение чата, которое пользователи отправляют и получают.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/gameInitEvent'
+            errorMessage:
+              description: Сообщение об ошибке, если что-то пойдет не так.
+              content:
+                application/json:
+                  schema:
+                    $ref: '#/components/schemas/ErrorMessage'
