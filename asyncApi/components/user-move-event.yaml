@@ -1,0 +1,10 @@
+components:
+  schemas:
+    UserMoveEvent:
+      type: object
+      properties:
+        card:
+          $ref: 'components/card.yaml#/components/schemas/Card'
+        playerId:
+          type: string
+          description: Идентификатор игрока.

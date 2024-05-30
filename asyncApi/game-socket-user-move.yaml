@@ -1,0 +1,28 @@
+asyncapi: 3.0.0
+info:
+  title: WebSocket API
+  version: '0.1.0'
+  description: Контракт для WS соединения при ходе пользователя.
+
+channels:
+  userMove:
+    messages:
+      UserMoveEvent:
+        $ref: '#/components/messages/UserMoveEvent'
+
+components:
+  messages:
+    UserMoveEvent:
+      summary: Событие хода игрока.
+      payload:
+        $ref: 'components/user-move-event.yaml#/components/schemas/UserMoveEvent'
+    ErrorMessage:
+      summary: Событие ошибки.
+      payload:
+        $ref: 'components/error-event.yaml#/components/schemas/ErrorEvent'
+
+operations:
+  UserMoveEvent:
+    action: 'receive'
+    channel:
+      $ref: '#/channels/userMove'
