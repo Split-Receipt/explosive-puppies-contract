@@ -4,12 +4,6 @@ info:
   version: '0.1.0'
   description: Контракт для WS соединения при начале игры.
 
-servers:
-    host: wss://example.com/ws
-    pathname: /lobby/socket
-    protocol: wss
-    description: Сервер для /lobby/socket соединения в реальном времени.
-
 channels:
   gameStart:
     messages:
@@ -19,36 +13,16 @@ channels:
 components:
   messages:
     gameInitEvent:
-      summary: Событие запускающееся при успешном соединении WebSocket.
+      summary: Событие начала игры.
       payload:
-        $ref: '#/components/schemas/gameInitEvent'
+        $ref: 'components/game-start-event.yaml#/components/schemas/EventGameStart'
     ErrorMessage:
-      summary: Событие запускающееся при ошибке соединения WebSocket.
+      summary: Событие ошибки.
       payload:
-        $ref: '#/components/schemas/ErrorMessage'
-
-  schemas:
-    gameInitEvent:
-      type: object
-      properties:
-        event:
-          type: string
-          description: Код события начала игры
-        gameId:
-          type: string
-          description: Идентификатор игры
-    ErrorMessage:
-      type: object
-      properties:
-        message:
-          type: string
-          description: Пояснение ошибки
-        code:
-          type: string
-          description: Код ошибки не связан с статусом запроса
+        $ref: 'components/error-event.yaml#/components/schemas/ErrorEvent'
 
 operations:
-  startGame:
+  GameStartEvent:
     action: 'receive'
     channel:
       $ref: '#/channels/gameStart'
