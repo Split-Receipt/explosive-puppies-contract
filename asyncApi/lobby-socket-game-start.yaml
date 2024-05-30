@@ -1,0 +1,54 @@
+asyncapi: 3.0.0
+info:
+  title: WebSocket API
+  version: '0.1.0'
+  description: Контракт для WS соединения при начале игры.
+
+servers:
+    host: wss://example.com/ws
+    pathname: /lobby/socket
+    protocol: wss
+    description: Сервер для /lobby/socket соединения в реальном времени.
+
+channels:
+  gameStart:
+    messages:
+      gameInitEvent:
+        $ref: '#/components/messages/gameInitEvent'
+
+components:
+  messages:
+    gameInitEvent:
+      summary: Событие запускающееся при успешном соединении WebSocket.
+      payload:
+        $ref: '#/components/schemas/gameInitEvent'
+    ErrorMessage:
+      summary: Событие запускающееся при ошибке соединения WebSocket.
+      payload:
+        $ref: '#/components/schemas/ErrorMessage'
+
+  schemas:
+    gameInitEvent:
+      type: object
+      properties:
+        event:
+          type: string
+          description: Код события начала игры
+        gameId:
+          type: string
+          description: Идентификатор игры
+    ErrorMessage:
+      type: object
+      properties:
+        message:
+          type: string
+          description: Пояснение ошибки
+        code:
+          type: string
+          description: Код ошибки не связан с статусом запроса
+
+operations:
+  startGame:
+    action: 'receive'
+    channel:
+      $ref: '#/channels/gameStart'
