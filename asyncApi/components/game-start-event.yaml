@@ -1,0 +1,15 @@
+components:
+  schemas:
+    GameStartEvent:
+      type: object
+      properties:
+        eventCode:
+          type: string
+          description: Код события.
+        data:
+          type: object
+          description: Объект сопутствующих данных.
+          properties:
+            gameId:
+              type: string
+              description: Идентификатор игры.

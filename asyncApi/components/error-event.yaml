@@ -1,0 +1,18 @@
+components:
+  schemas:
+    ErrorEvent:
+      type: object
+      properties:
+        eventCode:
+          type: string
+          description: Код события.
+        data:
+          type: object
+          description: Объект сопутствующих данных.
+          properties:
+            code:
+              type: string
+              description: Код ошибки, не связан с статусом запроса.
+            message:
+              type: string
+              description: Пояснение ошибки.
