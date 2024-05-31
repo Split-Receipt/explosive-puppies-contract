@@ -3,8 +3,15 @@ components:
     UserMoveEvent:
       type: object
       properties:
-        card:
-          $ref: 'components/card.yaml#/components/schemas/Card'
-        playerId:
+        eventCode:
           type: string
-          description: Идентификатор игрока.
+          description: Код события.
+        data:
+          type: object
+          description: Объект сопутствующих данных.
+          properties:
+            card:
+              $ref: 'components/card.yaml#/components/schemas/Card'
+            playerId:
+              type: string
+              description: Идентификатор игрока.
