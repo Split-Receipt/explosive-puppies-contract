@@ -1,0 +1,13 @@
+components:
+  schemas:
+    GameEndEvent:
+      type: object
+      properties:
+        eventCode:
+          type: string
+          description: Код события.
+        data:
+          type: object
+          description: Объект сопутствующих данных.
+          properties:
+            $ref: 'games.yaml#/components/schemas/Game/items/properties/winner'
