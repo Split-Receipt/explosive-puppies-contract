@@ -27,14 +27,14 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                - $ref: 'components/players.yaml#/components/schemas/Player'
-                - type: object
-                  properties: 
-                    token:
-                      type: string
-                      description: Токен авторизации пользователя
-                    lobbyId:
-                      type: string
-                      description: Идентификатор лобби которому подключени игрок
+                type: object
+                properties:
+                  player:
+                    $ref: 'components/players.yaml#/components/schemas/Player'
+                  token:
+                    type: string
+                    description: Токен авторизации пользователя
+                  lobbyId:
+                    type: string
+                    description: Идентификатор лобби которому подключени игрок
 

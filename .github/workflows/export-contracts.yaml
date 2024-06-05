@@ -1,0 +1,39 @@
+name: Export Contracts to Postman
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  export-contracts:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Export contracts
+        run: |
+          mkdir -p ./exported-contracts
+          cp -R ./contracts/* ./exported-contracts/
+
+      - name: Upload contracts to Postman
+        run: |
+          API_KEY=${{ secrets.POSTMAN_API_KEY }}
+          COLLECTION_ID=${{ secrets.POSTMAN_COLLECTION_ID }}
+          for file in ./exported-contracts/*; do
+            echo "Uploading $file"
+            cul -X POST https://api.getpostman.com/collections/${COLLECTION_ID}/contracts \
+              -H "X-Api-Key: ${API_KEY}" \
+              -H "Content-Type: application/json" \
+              -d @$file
+          done
