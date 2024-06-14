@@ -1,0 +1,21 @@
+components:
+  schemas:
+    Card:
+      type: object
+      description: Данные о карте.
+      properties:
+        id:
+          type: string
+          description: Идентификатор карты.
+        name:
+          type: string
+          description: Название карты.
+        image:
+          type: string
+          description: Изображение карты.
+        description:
+          type: string
+          description: Описание карты.
+        code:
+          type: string
+          description: Код карты для понимания ее эффекта внутри кода игры.
