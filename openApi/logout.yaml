@@ -1,0 +1,61 @@
+openapi: 3.0.0
+info:
+  title: Logout API
+  version: 1.0.0
+paths:
+  /logout/{userId}:
+    post:
+      summary: Разлогирование пользователя
+      description: Выход из системы для конкретного пользователя и возврат сообщения о состоянии.
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema:
+            type: string
+            $ref: '../components/players.yaml#/components/schemas/Player/properties/id'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                player:
+                  $ref: '../components/players.yaml#/components/schemas/Player'
+                  description: Объект пользователя
+
+      responses:
+        '200':
+          description: Сообщение об успешном выходе из системы
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Сообщение о состоянии действия выхода из системы
+                    $ref: '../components/errors.yaml#/components/schemas/Error/properties/message'
+                    example: Выход выполнен успешно
+        '400':
+          description: Некорректный запрос
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '../components/errors.yaml#/components/schemas/Error'
+        '401':
+          description: Вы не авторизованы
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '../components/errors.yaml#/components/schemas/Error'
+        '404':
+          description: Пользователь не найден
+          content:
+            application/json:
+              schema:
+                type: object
+                $ref: '../components/errors.yaml#/components/schemas/Error'
