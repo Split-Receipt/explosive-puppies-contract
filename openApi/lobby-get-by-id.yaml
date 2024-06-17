@@ -33,11 +33,10 @@ paths:
                     description: Идентификатор лобби
                   players:
                     type: array
-                    $ref: 'components/players.yaml#/components/schemas/Players'
+                    $ref: '../components/players.yaml#/components/schemas/Players'
                   games: 
                     type: array
-                    $ref: 'components/games.yaml#/components/schemas/Game'
-                                    
+                    $ref: '../components/games.yaml#/components/schemas/Game'                  
 
         '400':
           description: Некорректный запрос
@@ -45,18 +44,19 @@ paths:
             application/json:
               schema:
                 type: object
-                $ref: 'components/errors.yaml#/components/schemas/Error'
+                $ref: '../components/errors.yaml#/components/schemas/Error'
         '401':
           description: Вы не авторизованы
           content:
             application/json:
               schema:
                 type: object
-                $ref: 'components/errors.yaml#/components/schemas/Error'        
+                $ref: '../components/errors.yaml#/components/schemas/Error'        
         '404':
           description: Лобби не существует
           content:
             application/json:
               schema:
                 type: object
-                $ref: 'components/errors.yaml#/components/schemas/Error'
+                $ref: '../components/errors.yaml#/components/schemas/Error'
+                

@@ -20,7 +20,7 @@ paths:
               type: object
               properties:
                 players:
-                  $ref: 'components/players.yaml#/components/schemas/Players'
+                  $ref: '../components/players.yaml#/components/schemas/Players'
                   description: Список игроков
                 lobbyId:
                   type: string
@@ -43,11 +43,11 @@ paths:
             application/json:
               schema:
                 type: object
-                $ref: 'components/errors.yaml#/components/schemas/Error'
+                $ref: '../components/errors.yaml#/components/schemas/Error'
         '401':
           description: Вы не авторизованы
           content:
             application/json:
               schema:
                 type: object
-                $ref: 'components/errors.yaml#/components/schemas/Error'
+                $ref: '../components/errors.yaml#/components/schemas/Error'

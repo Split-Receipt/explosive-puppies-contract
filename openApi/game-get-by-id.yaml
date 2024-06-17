@@ -27,7 +27,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: 'components/games.yaml#/components/schemas/Game'
+                $ref: '../components/games.yaml#/components/schemas/Game'
 
         '400':
           description: Некорректный запрос
@@ -35,11 +35,11 @@ paths:
             application/json:
               schema:
                 type: object
-                $ref: 'components/errors.yaml#/components/schemas/Error'
+                $ref: '../components/errors.yaml#/components/schemas/Error'
         '401':
           description: Вы не авторизованы
           content:
             application/json:
               schema:
                 type: object
-                $ref: 'components/errors.yaml#/components/schemas/Error'
+                $ref: '../components/errors.yaml#/components/schemas/Error'
