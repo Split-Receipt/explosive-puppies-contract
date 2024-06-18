@@ -20,7 +20,7 @@ paths:
                 userName:
                   type: string
                   description: Имя пользователя
-          
+  
       responses:
         '200':
           description: Успешное присоединение к лобби или создание нового
@@ -28,7 +28,7 @@ paths:
             application/json:
               schema:
                 allOf:
-                - $ref: 'components/players.yaml#/components/schemas/Player'
+                - $ref: '../components/players.yaml#/components/schemas/Player'
                 - type: object
                   properties: 
                     token:
@@ -37,4 +37,3 @@ paths:
                     lobbyId:
                       type: string
                       description: Идентификатор лобби которому подключени игрок
-

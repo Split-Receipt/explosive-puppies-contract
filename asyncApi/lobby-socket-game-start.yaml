@@ -15,11 +15,11 @@ components:
     gameInitEvent:
       summary: Событие начала игры.
       payload:
-        $ref: 'components/game-start-event.yaml#/components/schemas/EventGameStart'
+        $ref: '../components/game-start-event.yaml#/components/schemas/GameStartEvent'
     ErrorMessage:
       summary: Событие ошибки.
       payload:
-        $ref: 'components/error-event.yaml#/components/schemas/ErrorEvent'
+        $ref: '../components/error-event.yaml#/components/schemas/ErrorEvent'
 
 operations:
   GameStartEvent:
