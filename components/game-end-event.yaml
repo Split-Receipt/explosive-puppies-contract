@@ -5,7 +5,7 @@ components:
       properties:
         eventCode:
           type: string
-          description: Код события.
+          description: Код окончания игры.
         data:
           type: object
           description: Объект сопутствующих данных.
