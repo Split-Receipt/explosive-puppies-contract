@@ -1,0 +1,28 @@
+asyncapi: 3.0.0
+info:
+  title: Take a card
+  version: '0.1.0'
+  description: Контракт для описания действия взятия карты.
+
+channels:
+  cardTake:
+    messages:
+      cardTakeEvent:
+        $ref: '#/components/messages/cardTakeEvent'
+
+components:
+  messages:
+    cardTakeEvent:
+      summary: Событие взятие карты.
+      payload:
+        $ref: '../components/card-take-event.yaml#/components/schemas/CardTakeEvent'
+    ErrorMessage:
+      summary: Событие ошибки.
+      payload:
+        $ref: '../components/error-event.yaml#/components/schemas/ErrorEvent'
+
+operations:
+  CardTakeEvent:
+    action: 'receive'
+    channel:
+      $ref: '#/channels/cardTake'

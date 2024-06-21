@@ -1,0 +1,22 @@
+components:
+  schemas:
+    CardTakeEvent:
+      type: object
+      properties:
+        eventCode:
+          type: string
+          description: Код события взятие карты.
+        data:
+          type: object
+          description: Объект сопутствующих данных.
+          properties:
+            cardId:
+              type: string
+              description: Идентификатор карты.
+            deckOfCardsNameOut:
+              type: string
+              description: Имя колоды из которой происходит передача.
+            deckOfCardsNameIn:
+              type: string
+              description: Имя колоды в которую происходит передача.
+
