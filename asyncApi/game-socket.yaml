@@ -1,0 +1,30 @@
+asyncapi: 3.0.0
+info:
+  title: Game Socket API
+  version: '0.1.0'
+  description: Контракт для WS соединения при завершении игры.
+
+channels:
+  gameEnd:
+    messages:
+      gameEndEvent:
+        $ref: '#/components/messages/gameEndEvent'
+
+components:
+  messages:
+    gameEndEvent:
+      summary: Событие завершения игры.
+      payload:
+        schemaFormat: 'application/json'
+        schema: '../components/game-end-event.yaml#/components/schemas/GameEndEvent'
+    ErrorMessage:
+      summary: Событие ошибки.
+      payload:
+        schemaFormat: 'application/json'
+        schema: '../components/error-event.yaml#/components/schemas/ErrorEvent'
+
+operations:
+  GameEndEvent:
+    action: 'receive'
+    channel:
+      $ref: '#/channels/gameEnd' 
